@@ -1,0 +1,11 @@
+[project]
+name = "pfun-django"
+version = "0.1.0"
+description = "django management layer for pfun digital health"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "django>=5.2.7",
+    "django-redis>=6.0.0",
+    "django-rq>=3.1",
+]
