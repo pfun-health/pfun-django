@@ -10,7 +10,7 @@ RQ_QUEUES = {
         'DEFAULT_TIMEOUT': 360,
         'DEFAULT_RESULT_TTL': 800,
         'REDIS_CLIENT_KWARGS': {    # Eventual additional Redis connection arguments
-            'ssl_cert_reqs': None,
+            # 'ssl_cert_reqs': None,
         },
     },
     'with-sentinel': {

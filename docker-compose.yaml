@@ -1,0 +1,25 @@
+services:
+  
+  pfun-django:
+    build: ./app
+    ports:
+      - "8000:8000"
+    # use the service name 'cache' as the hostname for the redis cache.
+    environment:
+      - REDIS_HOST=cache
+    depends_on:
+      - cache
+    # other configurations (volumes, command, etc.)
+    command: ["python", "manage.py", "runserver"]
+    
+  cache:
+    image: redis:6.2-alpine
+    restart: always
+    ports:
+      - '6379:6379'
+    command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+    volumes: 
+      - cache:/data
+volumes:
+  cache:
+    driver: local
