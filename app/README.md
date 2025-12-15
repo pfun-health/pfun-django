@@ -15,3 +15,8 @@ $ uv sync && uv pip install -e .
 $ python manage.py runserver
 
 ```
+
+
+## References
+
++ [dockerizing-django-with-uv-redis](https://medium.com/@hmbarotov/dockerizing-django-with-uv-postgres-and-redis-e1dd9abe9640 "Medium_DockerizingDjangoWithUV")
