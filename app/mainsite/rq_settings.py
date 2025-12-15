@@ -2,7 +2,7 @@ import os
 
 RQ_QUEUES = {
     'default': {
-        'HOST': 'localhost',
+        'HOST': 'cache',
         'PORT': 6379,
         'DB': 0,
         'USERNAME': 'some-user',

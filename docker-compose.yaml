@@ -6,22 +6,28 @@ services:
       - ./app/:/app/
     env_file:
       - ./.env.dev
+    environment:
+      - REDIS_HOST=cache
     command: uv run manage.py runserver 0.0.0.0:8000
     ports:
       - "8000:8000"
     depends_on:
       - cache
-    
-  cache:
-    image: redis:6.2-alpine
+
+  cache: # new
+    image: redis:8-bookworm
     restart: always
     ports:
-      - '6379:6379'
+      - 6379:6379
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "3"    
     command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
     volumes: 
       - cache:/data
-    env_file:
-      - ./.env.dev
+
 volumes:
   cache:
     driver: local
